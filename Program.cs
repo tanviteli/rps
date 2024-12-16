@@ -7,27 +7,36 @@
             Console.WriteLine("Hello, World!, WElcome to Rock Paper and Scissors game");
 
             // Accepting choice from Player
+            int pl_choice;
+            int c_choice;
+            String player_choice = "";
+            String Comp_choice = "";
+            char ch;
 
-            
-            int pl_choice = UserChoice();
-            String player_choice = ConvertChoice(pl_choice);
-            Console.WriteLine("You chose :  " + player_choice);
+            do
+            {
+                pl_choice = UserChoice();
+                player_choice = ConvertChoice(pl_choice);
+                Console.WriteLine("You chose :  " + player_choice);
 
 
-            //Generating Computer Choice for Rock Papee Scissor
+                //Generating Computer Choice for Rock Papee Scissor
 
-            int c_choice = ComputerChoice();
-            String Comp_choice = ConvertChoice(c_choice);
-            Console.WriteLine("Computer Chose : " + Comp_choice);
+                c_choice = ComputerChoice();
+                Comp_choice = ConvertChoice(c_choice);
+                Console.WriteLine("Computer Chose : " + Comp_choice);
 
-            FindWinner(pl_choice, c_choice);
+                FindWinner(pl_choice, c_choice);
 
-            Console.WriteLine("DO you wish to continue to play");
-            char ch = char.Parse(Console.ReadLine());
+                Console.WriteLine("DO you wish to continue to play");
+                ch = char.Parse(Console.ReadLine());
+
+            } while (ch == 'y' || ch == 'Y');
 
 
         }
 
+        //Method to accept user's choice
         public static int UserChoice()
         {
             Console.WriteLine("Pls enter your choice for Rock, Paper or Scissor");
@@ -36,6 +45,7 @@
             return p_choice;
         }
 
+        //Method to generate random computer choice
         public static int ComputerChoice()
         {
 
@@ -43,6 +53,7 @@
             return c_choice;
         }
 
+        // Method to convery User and Computer choice to STring
         public static String ConvertChoice(int InputValue)
         {
             String choice = "";
@@ -68,7 +79,7 @@
 
         }
 
-
+        // Method to find the winner
         public static void FindWinner(int p_choice, int c_choice)
         {
 
